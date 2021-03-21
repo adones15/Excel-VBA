@@ -1,0 +1,863 @@
+Sub Cadastrar_Estoque()
+
+Application.ScreenUpdating = False
+
+If Range("F5") = Empty Or Range("F7") = Empty Or Range("f9") = Empty Or Range("f11") = Empty Or Range("f13") = Empty Then
+MsgBox ("Preencher todos os campos!!!")
+Exit Sub
+End If
+
+Sheets("Ent_Estoque").Select
+Range("A3").EntireRow.Insert
+Sheets("Entrada").Select
+
+'data
+Range("F5").Copy
+Sheets("Ent_Estoque").Select
+Range("A3").PasteSpecial xlPasteValues
+
+'codigo
+Sheets("Entrada").Select
+Range("F7").Copy
+Sheets("Ent_Estoque").Select
+Range("B3").PasteSpecial xlPasteValues
+
+'produto
+Sheets("Entrada").Select
+Range("F9").Copy
+Sheets("Ent_Estoque").Select
+Range("C3").PasteSpecial xlPasteValues
+
+'quantidade
+Sheets("Entrada").Select
+Range("F11").Copy
+Sheets("Ent_Estoque").Select
+Range("D3").PasteSpecial xlPasteValues
+
+'valor unitário
+Sheets("Entrada").Select
+Range("F13").Copy
+Sheets("Ent_Estoque").Select
+Range("E3").PasteSpecial xlPasteValues
+
+Worksheets("Entrada").Range("F9").ClearContents
+Worksheets("Entrada").Range("F11").ClearContents
+Worksheets("Entrada").Range("F13").ClearContents
+
+Sheets("Entrada").Select
+
+
+End Sub
+
+Sub Saida()
+
+Application.ScreenUpdating = False
+
+If Range("F5") = Empty Or Range("F7") = Empty Or Range("f9") = Empty Or Range("f11") = Empty Or Range("f13") = Empty Then
+MsgBox ("Preencher todos os campos!!!")
+Exit Sub
+End If
+
+Sheets("Sai_Estoque").Select
+Range("A3").EntireRow.Insert
+Sheets("Saida").Select
+
+'data
+Range("F5").Copy
+Sheets("Sai_Estoque").Select
+Range("A3").PasteSpecial xlPasteValues
+
+'codigo
+Sheets("Saida").Select
+Range("F7").Copy
+Sheets("Sai_Estoque").Select
+Range("B3").PasteSpecial xlPasteValues
+
+'produto
+Sheets("Saida").Select
+Range("F9").Copy
+Sheets("Sai_Estoque").Select
+Range("C3").PasteSpecial xlPasteValues
+
+'quantidade
+Sheets("Saida").Select
+Range("F11").Copy
+Sheets("Sai_Estoque").Select
+Range("D3").PasteSpecial xlPasteValues
+
+'valor unitário
+Sheets("Saida").Select
+Range("F13").Copy
+Sheets("Sai_Estoque").Select
+Range("E3").PasteSpecial xlPasteValues
+
+Worksheets("Saida").Range("F9").ClearContents
+Worksheets("Saida").Range("F11").ClearContents
+Worksheets("Saida").Range("F13").ClearContents
+
+Sheets("Saida").Select
+
+End Sub
+
+Sub Cadastrar_venda()
+
+Application.ScreenUpdating = False
+
+If Range("E5") = Empty Or Range("D8") = Empty Or Range("H5") = Empty Or Range("K5") = Empty Or Range("N5") = Empty Or Range("Q5") = Empty Or Range("T5") = Empty Or Range("D11") = Empty Or Range("D13") = Empty Then
+MsgBox ("Preencher todos os campos!!!")
+Exit Sub
+End If
+
+Sheets("Base_Vendas").Select
+Range("A3").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+Sheets("Sai_Estoque").Select
+Range("A3").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+'data 1
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Base_Vendas").Select
+Range("A3").PasteSpecial xlPasteValues
+
+'data ---- TESTE AUTOMATIZAÇÃO ESTOQUE X VENDA
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Sai_estoque").Select
+Range("A3").PasteSpecial xlPasteValues
+
+
+'codigo de venda 1
+Sheets("Cadastro_venda").Select
+Range("D8").Copy
+Sheets("Base_Vendas").Select
+Range("J3").PasteSpecial xlPasteValues
+
+'forma de pagamento
+Sheets("Cadastro_venda").Select
+Range("D11").Copy
+Sheets("Base_Vendas").Select
+Range("K3").PasteSpecial xlPasteValues
+
+'canal de vendas
+Sheets("Cadastro_venda").Select
+Range("E11").Copy
+Sheets("Base_Vendas").Select
+Range("M3").PasteSpecial xlPasteValues
+
+
+'Parcelas
+Sheets("Cadastro_venda").Select
+Range("D13").Copy
+Sheets("Base_Vendas").Select
+Range("L3").PasteSpecial xlPasteValues
+
+'Juros débito
+Sheets("Cadastro_venda").Select
+Range("U5").Copy
+Sheets("Base_Vendas").Select
+Range("n3").PasteSpecial xlPasteValues
+
+'receber rebito
+Sheets("Cadastro_venda").Select
+Range("V5").Copy
+Sheets("Base_Vendas").Select
+Range("O3").PasteSpecial xlPasteValues
+
+'juros crédito
+Sheets("Cadastro_venda").Select
+Range("W5").Copy
+Sheets("Base_Vendas").Select
+Range("P3").PasteSpecial xlPasteValues
+
+'receber crédito
+Sheets("Cadastro_venda").Select
+Range("X5").Copy
+Sheets("Base_Vendas").Select
+Range("Q3").PasteSpecial xlPasteValues
+
+'receber liquido
+Sheets("Cadastro_venda").Select
+Range("Y5").Copy
+Sheets("Base_Vendas").Select
+Range("R3").PasteSpecial xlPasteValues
+
+
+'codigo 1
+Sheets("Cadastro_venda").Select
+Range("H5").Copy
+Sheets("Base_Vendas").Select
+Range("B3").PasteSpecial xlPasteValues
+
+'CODIGO ---- TESTE AUTOMATIZAÇÃO ESTOQUE X VENDA
+Sheets("Cadastro_venda").Select
+Range("H5").Copy
+Sheets("Sai_estoque").Select
+Range("B3").PasteSpecial xlPasteValues
+
+'produto 1
+Sheets("Cadastro_venda").Select
+Range("K5").Copy
+Sheets("Base_Vendas").Select
+Range("C3").PasteSpecial xlPasteValues
+
+'PRODUTO ---- TESTE AUTOMATIZAÇÃO ESTOQUE X VENDA
+Sheets("Cadastro_venda").Select
+Range("K5").Copy
+Sheets("Sai_estoque").Select
+Range("C3").PasteSpecial xlPasteValues
+
+'quantidade
+Sheets("Cadastro_venda").Select
+Range("N5").Copy
+Sheets("Base_Vendas").Select
+Range("D3").PasteSpecial xlPasteValues
+
+'QUANTIDADE---- TESTE AUTOMATIZAÇÃO ESTOQUE X VENDA
+Sheets("Cadastro_venda").Select
+Range("N5").Copy
+Sheets("Sai_estoque").Select
+Range("D3").PasteSpecial xlPasteValues
+
+'valor unitário
+Sheets("Cadastro_venda").Select
+Range("Q5").Copy
+Sheets("Base_Vendas").Select
+Range("E3").PasteSpecial xlPasteValues
+
+'VALOR UNITARIO ---- TESTE AUTOMATIZAÇÃO ESTOQUE X VENDA
+Sheets("Cadastro_venda").Select
+Range("Q5").Copy
+Sheets("Sai_estoque").Select
+Range("E3").PasteSpecial xlPasteValues
+
+Sheets("Base_Vendas").Select
+Range("A4").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+Sheets("Sai_Estoque").Select
+Range("A4").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+
+'data 2
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Base_Vendas").Select
+Range("A4").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Sai_estoque").Select
+Range("A4").PasteSpecial xlPasteValues
+
+'codigo de venda 2
+Sheets("Cadastro_venda").Select
+Range("D8").Copy
+Sheets("Base_Vendas").Select
+Range("J4").PasteSpecial xlPasteValues
+
+'forma de pagamento
+Sheets("Cadastro_venda").Select
+Range("D11").Copy
+Sheets("Base_Vendas").Select
+Range("K4").PasteSpecial xlPasteValues
+
+'canal de vendas
+Sheets("Cadastro_venda").Select
+Range("D13").Copy
+Sheets("Base_Vendas").Select
+Range("L4").PasteSpecial xlPasteValues
+
+'Parcelas 2
+Sheets("Cadastro_venda").Select
+Range("E11").Copy
+Sheets("Base_Vendas").Select
+Range("M4").PasteSpecial xlPasteValues
+
+'Juros débito 2
+Sheets("Cadastro_venda").Select
+Range("U6").Copy
+Sheets("Base_Vendas").Select
+Range("N4").PasteSpecial xlPasteValues
+
+'receber rebito 2
+Sheets("Cadastro_venda").Select
+Range("V6").Copy
+Sheets("Base_Vendas").Select
+Range("O4").PasteSpecial xlPasteValues
+
+'juros crédito 2
+Sheets("Cadastro_venda").Select
+Range("W6").Copy
+Sheets("Base_Vendas").Select
+Range("P4").PasteSpecial xlPasteValues
+
+'receber crédito 2
+Sheets("Cadastro_venda").Select
+Range("X6").Copy
+Sheets("Base_Vendas").Select
+Range("Q4").PasteSpecial xlPasteValues
+
+'receber liquido 2
+Sheets("Cadastro_venda").Select
+Range("Y6").Copy
+Sheets("Base_Vendas").Select
+Range("R4").PasteSpecial xlPasteValues
+
+
+
+'codigo 2
+Sheets("Cadastro_venda").Select
+Range("H6").Copy
+Sheets("Base_Vendas").Select
+Range("B4").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("H6").Copy
+Sheets("Sai_estoque").Select
+Range("B4").PasteSpecial xlPasteValues
+
+'produto 2
+Sheets("Cadastro_venda").Select
+Range("K6").Copy
+Sheets("Base_Vendas").Select
+Range("C4").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("K6").Copy
+Sheets("Sai_estoque").Select
+Range("C4").PasteSpecial xlPasteValues
+
+'quantidade 2
+Sheets("Cadastro_venda").Select
+Range("N6").Copy
+Sheets("Base_Vendas").Select
+Range("D4").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("N6").Copy
+Sheets("Sai_estoque").Select
+Range("D4").PasteSpecial xlPasteValues
+
+'valor unitário 2
+Sheets("Cadastro_venda").Select
+Range("Q6").Copy
+Sheets("Base_Vendas").Select
+Range("E4").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("Q6").Copy
+Sheets("Sai_estoque").Select
+Range("E4").PasteSpecial xlPasteValues
+
+
+Sheets("Base_Vendas").Select
+Range("A5").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+Sheets("Sai_Estoque").Select
+Range("A5").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+
+'data 3
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Base_Vendas").Select
+Range("A5").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Sai_estoque").Select
+Range("A5").PasteSpecial xlPasteValues
+
+
+'codigo de venda 3
+Sheets("Cadastro_venda").Select
+Range("D8").Copy
+Sheets("Base_Vendas").Select
+Range("J5").PasteSpecial xlPasteValues
+
+'forma de pagamento 3
+Sheets("Cadastro_venda").Select
+Range("D11").Copy
+Sheets("Base_Vendas").Select
+Range("K5").PasteSpecial xlPasteValues
+
+'canal de vendas 3
+Sheets("Cadastro_venda").Select
+Range("D13").Copy
+Sheets("Base_Vendas").Select
+Range("L5").PasteSpecial xlPasteValues
+
+'Parcelas 3
+Sheets("Cadastro_venda").Select
+Range("E11").Copy
+Sheets("Base_Vendas").Select
+Range("M5").PasteSpecial xlPasteValues
+
+'Juros débito 3
+Sheets("Cadastro_venda").Select
+Range("U7").Copy
+Sheets("Base_Vendas").Select
+Range("N5").PasteSpecial xlPasteValues
+
+'receber rebito 3
+Sheets("Cadastro_venda").Select
+Range("V7").Copy
+Sheets("Base_Vendas").Select
+Range("O5").PasteSpecial xlPasteValues
+
+'juros crédito 3
+Sheets("Cadastro_venda").Select
+Range("W7").Copy
+Sheets("Base_Vendas").Select
+Range("P5").PasteSpecial xlPasteValues
+
+'receber crédito 3
+Sheets("Cadastro_venda").Select
+Range("X7").Copy
+Sheets("Base_Vendas").Select
+Range("Q5").PasteSpecial xlPasteValues
+
+'receber liquido 3
+Sheets("Cadastro_venda").Select
+Range("Y7").Copy
+Sheets("Base_Vendas").Select
+Range("R5").PasteSpecial xlPasteValues
+
+
+
+'codigo 3
+Sheets("Cadastro_venda").Select
+Range("H7").Copy
+Sheets("Base_Vendas").Select
+Range("B5").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("H7").Copy
+Sheets("Sai_estoque").Select
+Range("B5").PasteSpecial xlPasteValues
+
+'produto 3
+Sheets("Cadastro_venda").Select
+Range("K7").Copy
+Sheets("Base_Vendas").Select
+Range("C5").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("K7").Copy
+Sheets("Sai_estoque").Select
+Range("C5").PasteSpecial xlPasteValues
+
+'quantidade 3
+Sheets("Cadastro_venda").Select
+Range("N7").Copy
+Sheets("Base_Vendas").Select
+Range("D5").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("N7").Copy
+Sheets("Sai_estoque").Select
+Range("D5").PasteSpecial xlPasteValues
+
+'valor unitário 3
+Sheets("Cadastro_venda").Select
+Range("Q7").Copy
+Sheets("Base_Vendas").Select
+Range("E5").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("Q7").Copy
+Sheets("Sai_estoque").Select
+Range("E5").PasteSpecial xlPasteValues
+
+Sheets("Base_Vendas").Select
+Range("A6").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+Sheets("Sai_Estoque").Select
+Range("A6").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+
+'data 4
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Base_Vendas").Select
+Range("A6").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Sai_estoque").Select
+Range("A6").PasteSpecial xlPasteValues
+
+
+'codigo de venda 4
+Sheets("Cadastro_venda").Select
+Range("D8").Copy
+Sheets("Base_Vendas").Select
+Range("J6").PasteSpecial xlPasteValues
+
+'forma de pagamento
+Sheets("Cadastro_venda").Select
+Range("D11").Copy
+Sheets("Base_Vendas").Select
+Range("K6").PasteSpecial xlPasteValues
+
+'canal de vendas
+Sheets("Cadastro_venda").Select
+Range("D13").Copy
+Sheets("Base_Vendas").Select
+Range("L6").PasteSpecial xlPasteValues
+
+'Parcelas 4
+Sheets("Cadastro_venda").Select
+Range("E11").Copy
+Sheets("Base_Vendas").Select
+Range("M6").PasteSpecial xlPasteValues
+
+'Juros débito 4
+Sheets("Cadastro_venda").Select
+Range("U8").Copy
+Sheets("Base_Vendas").Select
+Range("N6").PasteSpecial xlPasteValues
+
+'receber rebito 4
+Sheets("Cadastro_venda").Select
+Range("V8").Copy
+Sheets("Base_Vendas").Select
+Range("O6").PasteSpecial xlPasteValues
+
+'juros crédito 4
+Sheets("Cadastro_venda").Select
+Range("W8").Copy
+Sheets("Base_Vendas").Select
+Range("P6").PasteSpecial xlPasteValues
+
+'receber crédito 4
+Sheets("Cadastro_venda").Select
+Range("X8").Copy
+Sheets("Base_Vendas").Select
+Range("Q6").PasteSpecial xlPasteValues
+
+'receber liquido 4
+Sheets("Cadastro_venda").Select
+Range("Y8").Copy
+Sheets("Base_Vendas").Select
+Range("R6").PasteSpecial xlPasteValues
+
+
+
+'codigo 4
+Sheets("Cadastro_venda").Select
+Range("H8").Copy
+Sheets("Base_Vendas").Select
+Range("B6").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("H8").Copy
+Sheets("Sai_estoque").Select
+Range("B6").PasteSpecial xlPasteValues
+
+'produto 4
+Sheets("Cadastro_venda").Select
+Range("K8").Copy
+Sheets("Base_Vendas").Select
+Range("C6").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("K8").Copy
+Sheets("Sai_estoque").Select
+Range("C6").PasteSpecial xlPasteValues
+
+'quantidade 4
+Sheets("Cadastro_venda").Select
+Range("N8").Copy
+Sheets("Base_Vendas").Select
+Range("D6").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("N8").Copy
+Sheets("Sai_estoque").Select
+Range("D6").PasteSpecial xlPasteValues
+
+'valor unitário 4
+Sheets("Cadastro_venda").Select
+Range("Q8").Copy
+Sheets("Base_Vendas").Select
+Range("E6").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("Q8").Copy
+Sheets("Sai_estoque").Select
+Range("E6").PasteSpecial xlPasteValues
+
+
+Sheets("Base_Vendas").Select
+Range("A7").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+Sheets("Sai_Estoque").Select
+Range("A7").EntireRow.Insert
+Sheets("Cadastro_venda").Select
+
+'data 5
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Base_Vendas").Select
+Range("A7").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("E5").Copy
+Sheets("Sai_estoque").Select
+Range("A7").PasteSpecial xlPasteValues
+
+'codigo de venda 5
+Sheets("Cadastro_venda").Select
+Range("D8").Copy
+Sheets("Base_Vendas").Select
+Range("J7").PasteSpecial xlPasteValues
+
+'forma de pagamento
+Sheets("Cadastro_venda").Select
+Range("D11").Copy
+Sheets("Base_Vendas").Select
+Range("K7").PasteSpecial xlPasteValues
+
+'canal de vendas
+Sheets("Cadastro_venda").Select
+Range("D13").Copy
+Sheets("Base_Vendas").Select
+Range("L7").PasteSpecial xlPasteValues
+
+
+'Parcelas 5
+Sheets("Cadastro_venda").Select
+Range("E11").Copy
+Sheets("Base_Vendas").Select
+Range("M7").PasteSpecial xlPasteValues
+
+'Juros débito 5
+Sheets("Cadastro_venda").Select
+Range("U9").Copy
+Sheets("Base_Vendas").Select
+Range("N7").PasteSpecial xlPasteValues
+
+'receber rebito 5
+Sheets("Cadastro_venda").Select
+Range("V9").Copy
+Sheets("Base_Vendas").Select
+Range("O7").PasteSpecial xlPasteValues
+
+'juros crédito 5
+Sheets("Cadastro_venda").Select
+Range("W9").Copy
+Sheets("Base_Vendas").Select
+Range("P7").PasteSpecial xlPasteValues
+
+'receber crédito 5
+Sheets("Cadastro_venda").Select
+Range("X9").Copy
+Sheets("Base_Vendas").Select
+Range("Q7").PasteSpecial xlPasteValues
+
+'receber liquido 5
+Sheets("Cadastro_venda").Select
+Range("Y9").Copy
+Sheets("Base_Vendas").Select
+Range("R7").PasteSpecial xlPasteValues
+
+
+'codigo 5
+Sheets("Cadastro_venda").Select
+Range("H9").Copy
+Sheets("Base_Vendas").Select
+Range("B7").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("H9").Copy
+Sheets("Sai_estoque").Select
+Range("B7").PasteSpecial xlPasteValues
+
+'produto 5
+Sheets("Cadastro_venda").Select
+Range("K9").Copy
+Sheets("Base_Vendas").Select
+Range("C7").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("K9").Copy
+Sheets("Sai_estoque").Select
+Range("C7").PasteSpecial xlPasteValues
+
+'quantidade 5
+Sheets("Cadastro_venda").Select
+Range("N9").Copy
+Sheets("Base_Vendas").Select
+Range("D7").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("N9").Copy
+Sheets("Sai_estoque").Select
+Range("D7").PasteSpecial xlPasteValues
+
+'valor unitário 5
+Sheets("Cadastro_venda").Select
+Range("Q9").Copy
+Sheets("Base_Vendas").Select
+Range("E7").PasteSpecial xlPasteValues
+
+'teste automação estoque
+Sheets("Cadastro_venda").Select
+Range("Q9").Copy
+Sheets("Sai_estoque").Select
+Range("E7").PasteSpecial xlPasteValues
+
+Worksheets("Cadastro_venda").Range("E11").ClearContents
+Worksheets("Cadastro_venda").Range("D11").ClearContents
+Worksheets("Cadastro_venda").Range("D13").ClearContents
+Worksheets("Cadastro_venda").Range("K5:K9").ClearContents
+Worksheets("Cadastro_venda").Range("N5:N9").ClearContents
+Worksheets("Cadastro_venda").Range("Q5:Q9").ClearContents
+
+Sheets("Cadastro_venda").Select
+
+End Sub
+
+Sub Cadast_Produto()
+
+Application.ScreenUpdating = False
+
+If Range("F6") = Empty Or Range("F8") = Empty Or Range("F10") = Empty Or Range("F12") = Empty Then
+MsgBox ("Preencher todos os campos!!!")
+Exit Sub
+End If
+
+Sheets("Cadastro_Produto").Select
+Range("A2").EntireRow.Insert
+Sheets("Cadprodut").Select
+
+Sheets("Estoque").Select
+Range("A3").EntireRow.Insert
+Sheets("Cadprodut").Select
+
+'Codigo item
+Sheets("Cadprodut").Select
+Range("F6").Copy
+Sheets("Cadastro_Produto").Select
+Range("B2").PasteSpecial xlPasteValues
+
+'estoque - ITEM
+Sheets("Cadprodut").Select
+Range("F6").Copy
+Sheets("Estoque").Select
+Range("A3").PasteSpecial xlPasteValues
+
+'produto
+Sheets("Cadprodut").Select
+Range("F8").Copy
+Sheets("Cadastro_Produto").Select
+Range("A2").PasteSpecial xlPasteValues
+
+'estoque - PRODUTO
+Sheets("Cadprodut").Select
+Range("F8").Copy
+Sheets("Estoque").Select
+Range("B3").PasteSpecial xlPasteValues
+
+'fornecedor
+Sheets("Cadprodut").Select
+Range("F10").Copy
+Sheets("Cadastro_Produto").Select
+Range("C2").PasteSpecial xlPasteValues
+
+'valor unitário
+Sheets("Cadprodut").Select
+Range("F12").Copy
+Sheets("Cadastro_Produto").Select
+Range("D2").PasteSpecial xlPasteValues
+
+Worksheets("Cadprodut").Range("F6").ClearContents
+Worksheets("Cadprodut").Range("F8").ClearContents
+Worksheets("Cadprodut").Range("F10").ClearContents
+Worksheets("Cadprodut").Range("F12").ClearContents
+
+Sheets("Cadprodut").Select
+
+End Sub
+
+Sub TelaMenu()
+
+    With Application
+    
+        .ScreenUpdating = False
+        .EnableEvents = False
+                
+        .ExecuteExcel4Macro "SHOW.TOOLBAR(""Ribbon"", FALSE)" 'ocultar os comandos da parte superior do excel
+        .DisplayFormulaBar = False 'ocular a barra de formula
+        .DisplayStatusBar = False 'ocultar barra de status
+        
+        With ActiveWindow
+            .DisplayHorizontalScrollBar = False
+            .DisplayVerticalScrollBar = False
+            .DisplayWorkbookTabs = False
+            .DisplayHeadings = False
+                    
+        End With
+        
+        .ScreenUpdating = True
+        .EnableEvents = True
+                    
+    End With
+    
+End Sub
+
+Sub TelaNormal()
+
+    With Application
+    
+        .ScreenUpdating = False
+        .EnableEvents = False
+                
+        .ExecuteExcel4Macro "SHOW.TOOLBAR(""Ribbon"", True)" 'ocultar os comandos da parte superior do excel
+        .DisplayFormulaBar = True 'ocular a barra de formula
+        .DisplayStatusBar = True 'ocultar barra de status
+        
+        With ActiveWindow
+            .DisplayHorizontalScrollBar = True
+            .DisplayVerticalScrollBar = True
+            .DisplayWorkbookTabs = True
+            .DisplayHeadings = True
+                    
+        End With
+        
+        .ScreenUpdating = True
+        .EnableEvents = True
+                    
+    End With
+    
+End Sub
+
